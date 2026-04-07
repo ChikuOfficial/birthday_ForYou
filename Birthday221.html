@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: black;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Background */
+.bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
+              url('balloon.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  transition: 1.5s;
+}
+
+/* Container */
+.container {
+  text-align: center;
+  padding: 50px 20px;
+  animation: fadeIn 2s ease;
+}
+
+/* Typing */
+.typewriter {
+  font-size: 24px;
+  max-width: 700px;
+  margin: auto;
+  border-right: 2px solid white;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3s steps(60, end), blink 0.7s infinite;
+}
+
+/* Messages */
+.message {
+  max-width: 700px;
+  margin: 25px auto;
+  font-size: 18px;
+  line-height: 1.8;
+  opacity: 0;
+  animation: fadeUp 1.5s ease forwards;
+}
+
+.message:nth-child(2) { animation-delay: 1.5s; }
+.message:nth-child(3) { animation-delay: 3s; }
+.message:nth-child(4) { animation-delay: 4.5s; }
+.message:nth-child(5) { animation-delay: 6s; }
+
+/* Image */
+.profile {
+  margin-top: 30px;
+  width: 200px;
+  border-radius: 50%;
+  box-shadow: 0 0 25px rgba(255,255,255,0.4);
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Button */
+.btn {
+  margin-top: 30px;
+  padding: 12px 30px;
+  background: #ff4d6d;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #ff1e4d;
+  transform: scale(1.1);
+}
+
+/* Surprise text */
+.surprise {
+  opacity: 0;
+  margin-top: 30px;
+  font-size: 22px;
+  color: #ffd6e0;
+  transition: 1.5s;
+}
+
+/* Final hook */
+.final {
+  opacity: 0;
+  margin-top: 20px;
+  font-size: 24px;
+  color: #ff4d6d;
+  animation: heartbeat 1.2s infinite;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes heartbeat {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="container">
+
+  <h1 class="typewriter">Happy Birthday </h1>
+
+  <p class="message">
+    I don’t know how to say this without it sounding too much, but you feel like something my soul recognized long before I met you.
+  </p>
+
+  <p class="message">
+    Loving you is the softest and most terrifying thing I’ve ever felt.
+  </p>
+
+  <p class="message">
+    Even if life pulls us in different directions, I’ll always be grateful I got to love you.
+  </p>
+
+  <p class="message">
+    Thank you for being born… just for me.
+  </p>
+
+  <p class="message" style="color:#ff4d6d;">
+    Happy Birthday 
+  </p>
+
+  <img src="ppp.jpg" class="profile">
+
+  <br>
+  <button class="btn" onclick="surprise()">Tap for Surprise ✨</button>
+
+  <p id="surpriseText" class="surprise">
+    You were never just someone I met…
+  </p>
+
+  <p id="finalText" class="final">
+    You’re the thought that stays… even when everything else fades.
+  </p>
+
+</div>
+
+<script>
+function surprise() {
+
+  // Change background
+  document.querySelector('.bg').style.background =
+    "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('cake.jpg')";
+
+  // Glow effect
+  document.body.style.boxShadow = "inset 0 0 120px rgba(255, 77, 109, 0.6)";
+
+  // Show first surprise line
+  let s = document.getElementById("surpriseText");
+  s.style.opacity = "1";
+
+  // Delay final hook (THIS is the important part)
+  setTimeout(() => {
+    document.getElementById("finalText").style.opacity = "1";
+  }, 2500);
+}
+</script>
+
+</body>
+</html>
